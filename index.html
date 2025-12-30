@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Configuración Android</title>
+    <link rel="manifest" href="manifest.json">
     <style>
         body { font-family: sans-serif; text-align: center; padding: 50px; }
         .btn { background: #007bff; color: white; padding: 15px 25px; text-decoration: none; border-radius: 5px; display: inline-block; border: none; cursor: pointer; font-size: 16px; }
@@ -31,6 +32,11 @@
         <a href="https://www.google.com" target="_blank">Ayuda de Google</a>
     </div>
 
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
+        }
+    </script>
     <script>
         function intentarAbrir() {
             // Intenta el intent (el que ya probamos)
