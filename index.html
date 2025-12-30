@@ -35,13 +35,26 @@
         <p>O busca ayuda en Google:</p>
         <a href="https://www.google.com" target="_blank">Ayuda de Google</a>
     </div>
-
+<button id="miBoton" class="btn">Abrir Pantalla</button>
+    <a id="miBoton" href="#" class="btn">Abrir Pantalla</a>
     <script>
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('sw.js');
         }
     </script>
     <script>
+// Seleccionamos el botón por su ID
+    const botonAjustes = document.getElementById('miBoton');
+
+    // Escuchamos el evento 'click'
+    botonAjustes.addEventListener('click', function(event) {
+        // Opcional: console.log para depurar
+        console.log("El usuario hizo clic, lanzando intent...");
+        
+        // El intent se dispara gracias a la interacción directa
+        window.location.href = "intent:#Intent;action=android.settings.DISPLAY_SETTINGS;end;";
+    });
+        
         function intentarAbrir() {
             // Intenta el intent (el que ya probamos)
             window.location.href = "intent://#Intent;action=android.settings.SETTINGS;end;";
