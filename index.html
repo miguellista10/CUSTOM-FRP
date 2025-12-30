@@ -1,3 +1,47 @@
-<a href="intent:#Intent;action=android.settings.SETTINGS;end;">Abrir Ajustes</a>
-<a href="intent:#Intent;action=android.intent.action.VIEW;component=com.android.settings/.Settings;end;">Abrir Ajustes (Forzado)</a>
-<a href="intent:#Intent;action=android.settings.WIFI_SETTINGS;end;">Abrir Wi-Fi</a>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración Android</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding: 50px; }
+        .btn { background: #007bff; color: white; padding: 15px 25px; text-decoration: none; border-radius: 5px; display: inline-block; border: none; cursor: pointer; font-size: 16px; }
+        #instrucciones { display: none; margin-top: 20px; padding: 20px; border: 1px solid #ccc; background: #f9f9f9; }
+    </style>
+</head>
+<body>
+
+    <h2>Configuración de Dispositivo</h2>
+    
+    <!-- Botón principal -->
+    <button onclick="intentarAbrir()" class="btn">Abrir Ajustes</button>
+
+    <!-- Opción 4: Instrucciones Visuales -->
+    <div id="instrucciones">
+        <p>⚠️ <strong>El sistema bloqueó el acceso automático.</strong></p>
+        <p>Para entrar manualmente:</p>
+        <ol style="text-align: left; display: inline-block;">
+            <li>Desliza la barra de notificaciones hacia abajo.</li>
+            <li>Toca el icono de engranaje (⚙️).</li>
+        </ol>
+        <br><br>
+        <!-- Opción 3: Link a búsqueda de Google -->
+        <p>O busca ayuda en Google:</p>
+        <a href="www.google.com" target="_blank" style="color: #007bff;">Ayuda de Google</a>
+    </div>
+
+    <script>
+        function intentarAbrir() {
+            // Intenta el intent (el que ya probamos)
+            window.location.href = "intent://#Intent;action=android.settings.SETTINGS;end;";
+            
+            // Si después de 1 segundo no pasó nada, muestra la Opción 4
+            setTimeout(function() {
+                document.getElementById('instrucciones').style.display = 'block';
+            }, 1000);
+        }
+    </script>
+
+</body>
+</html>
